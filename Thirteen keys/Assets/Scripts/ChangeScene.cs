@@ -12,11 +12,16 @@ public class ChangeScene : MonoBehaviour
 
     public void EndGameScene()
     {
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndingScene");
     }
 
     public void RestartMainScene()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

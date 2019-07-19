@@ -6,30 +6,46 @@ public class MapRender : MonoBehaviour
 {
 
     public GameObject[] pattern;
-    public float patternWidth;
-
-    private int[] currentPattern;
-
-    private void Awake()
-    {
-        currentPattern = new int[2];
-    }
+    public float obsRange;
 
     public void SetPattern()
     {
-        for(int i = 0; i < 11; i++)
+        for(int i = 0; i < pattern.Length; i++)
         {
             pattern[i].SetActive(false);
         }
 
-        currentPattern[0] = Random.Range(0, 11);
-        currentPattern[1] = Random.Range(0, 11);
+        int obsNum = Random.Range(0, 4);
+        int doorNum = DoorRandom();
 
-        pattern[currentPattern[0]].SetActive(true);
-        pattern[currentPattern[1]].SetActive(true);
+        int[] obsArr = new int[obsNum];
 
-        pattern[currentPattern[0]].transform.position = new Vector3(10, 0, 0);
-        pattern[currentPattern[1]].transform.position = new Vector3(10 + patternWidth, 0, 0);
+        for(int i = 0; i < obsNum; i++)
+        {
+            obsArr[i] = Random.Range(0, 5);
+            for(int j = 0; j < i; j++)
+            {
+                if(obsArr[i] == obsArr[j])
+                {
+                    i--;
+                    break;
+                }
+            }
+        }
+
+        for(int i = 0; i < obsNum; i++)
+        {
+            pattern[obsArr[i]].SetActive(true);
+            pattern[obsArr[i]].transform.position = new Vector3(12 + i * obsRange, 0, 0);
+        }
+
+
+    }
+
+    private int DoorRandom()
+    {
+        int[] ran = { 1, 1, 2, 2, 2, 3, 3 };
+        return ran[Random.Range(0, 7)];
     }
 
 }
