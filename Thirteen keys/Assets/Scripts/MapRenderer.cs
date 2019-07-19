@@ -5,11 +5,16 @@ using UnityEngine;
 public class MapRenderer : MonoBehaviour
 {
     public Sprite[] key, doorType, keyHole;
+    public Sprite[] groundSprite, backGroundSprite;
     public GameObject[] obstacle, door;
     public static MapRenderer instance;
+    public SpriteRenderer ground1, ground2, ground3, ground4, backGround1, backGround2, backGround3;
+    public GameObject[] paddal;
+    public AudioClip[] bgm;
 
     private const int startObsX = 18, length = 10;
     private bool isZero;
+    private bool[] isThemeChanged;
 
     //18, 10
 
@@ -17,13 +22,77 @@ public class MapRenderer : MonoBehaviour
     {
         instance = this;
         isZero = true;
+        isThemeChanged = new bool[3];
+        for(int i = 0; i < 3; i++)
+        {
+            isThemeChanged[i] = false;
+        }
+
+        ground1.sprite = groundSprite[0];
+        ground2.sprite = groundSprite[1];
+        ground3.sprite = groundSprite[0];
+        ground4.sprite = groundSprite[1];
+        backGround1.sprite = backGroundSprite[0];
+        backGround2.sprite = backGroundSprite[0];
+        backGround3.sprite = backGroundSprite[0];
+        obstacle[3] = paddal[0];
+        obstacle[7] = paddal[1];
 
         MapRender();
     }
 
     public void MapRender()
     {
-        if(isZero) //0이라면
+        if(GameManager.clearDoor >= 0 && GameManager.clearDoor < 6)
+        {
+            if (!isThemeChanged[0])
+            {
+                AudioManager.instance.PlayBGM(bgm[0]);
+                isThemeChanged[0] = true;
+            }
+            ground1.sprite = groundSprite[0];
+            ground2.sprite = groundSprite[1];
+            ground3.sprite = groundSprite[0];
+            ground4.sprite = groundSprite[1];
+            backGround1.sprite = backGroundSprite[0];
+            backGround2.sprite = backGroundSprite[0];
+            backGround3.sprite = backGroundSprite[0];
+            obstacle[3] = paddal[0];
+            obstacle[7] = paddal[1];
+        }
+        else if (GameManager.clearDoor >= 6 && GameManager.clearDoor < 13)
+        {
+            if (!isThemeChanged[1])
+            {
+                AudioManager.instance.PlayBGM(bgm[1]);
+                isThemeChanged[1] = true;
+            }
+            ground1.sprite = groundSprite[2];
+            ground2.sprite = groundSprite[3];
+            ground3.sprite = groundSprite[2];
+            ground4.sprite = groundSprite[3];
+            backGround1.sprite = backGroundSprite[1];
+            backGround2.sprite = backGroundSprite[1];
+            backGround3.sprite = backGroundSprite[1];
+            obstacle[3] = paddal[2];
+            obstacle[7] = paddal[3];
+        }
+        else if (GameManager.clearDoor >= 13)
+        {
+            if (!isThemeChanged[2])
+            {
+                AudioManager.instance.PlayBGM(bgm[2]);
+                isThemeChanged[2] = true;
+            }
+            ground1.sprite = groundSprite[4];
+            ground2.sprite = groundSprite[5];
+            ground3.sprite = groundSprite[4];
+            ground4.sprite = groundSprite[5];
+            obstacle[3] = paddal[4];
+            obstacle[7] = paddal[5];
+        }
+
+        if (isZero) //0이라면
         {
             isZero = false;
             int obsN = Random.Range(1, 4);

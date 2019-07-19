@@ -33,6 +33,8 @@ public class PlayerControll : MonoBehaviour
         v = Input.GetAxisRaw("Vertical");
         Vector2 velocity = rigid2d.velocity;
 
+        Debug.Log(GameManager.clearDoor);
+
         if (velocity.y > 1)
             anim.SetInteger("isJumpUp", 1);
         else if (velocity.y < 1)

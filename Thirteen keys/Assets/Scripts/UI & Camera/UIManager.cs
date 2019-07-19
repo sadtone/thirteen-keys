@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -54,6 +55,6 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
-        //메인 화면으로
+        SceneManager.LoadScene("MainScene");
     }
 }

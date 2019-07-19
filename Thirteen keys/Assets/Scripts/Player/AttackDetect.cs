@@ -25,14 +25,19 @@ public class AttackDetect : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            cnt++;
+            if (!isAttacked)
+            {
+                StartCoroutine(Attacked());
+                cnt++;
+            }
             if (cnt >= 2)
             {
                 //게임 오버
+                PlayerPrefs.SetInt("score", GameManager.currentScore);
                 SceneManager.LoadScene("EndingScene");
             }
-            if(!isAttacked)
-                StartCoroutine(Attacked());
+            
+                
 
         }
         if (other.CompareTag("Keyhole"))
@@ -62,6 +67,7 @@ public class AttackDetect : MonoBehaviour
         }
         if (other.CompareTag("KillPlayer"))
         {
+            PlayerPrefs.SetInt("score", GameManager.currentScore);
             SceneManager.LoadScene("EndingScene");
         }
     }
