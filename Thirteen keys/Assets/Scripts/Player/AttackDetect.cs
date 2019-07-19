@@ -26,7 +26,7 @@ public class AttackDetect : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             cnt++;
-            if (cnt > 2)
+            if (cnt >= 2)
             {
                 //게임 오버
                 SceneManager.LoadScene("EndingScene");
@@ -45,9 +45,8 @@ public class AttackDetect : MonoBehaviour
                 GameManager.moveSpeed += 0.3f;
                 GameManager.currentScore += 1000;
                 GameManager.clearDoor++;
-                AudioManager.PlaySound(doorOpenSound);
-
                 MapRenderer.instance.MapRender();
+                SoundManager.instance.PlaySound(doorOpenSound);
             }
         }
         if (other.CompareTag("Keyhole2"))
@@ -58,7 +57,7 @@ public class AttackDetect : MonoBehaviour
                 other.transform.parent.gameObject.GetComponent<Door>().doorDetect.tag = "OpenedDoor";
                 other.transform.parent.gameObject.GetComponent<Door>().killObject.tag = "Untagged";
                 GameManager.currentScore += 1000;
-                AudioManager.PlaySound(doorOpenSound);
+                SoundManager.instance.PlaySound(doorOpenSound);
             }
         }
         if (other.CompareTag("KillPlayer"))

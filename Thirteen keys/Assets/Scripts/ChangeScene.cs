@@ -7,7 +7,8 @@ public class ChangeScene : MonoBehaviour
 {
     public void StartGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
     }
 
     public void EndGameScene()

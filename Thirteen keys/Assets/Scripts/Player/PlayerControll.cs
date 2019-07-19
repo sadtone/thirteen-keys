@@ -95,6 +95,6 @@ public class PlayerControll : MonoBehaviour
     {
         keyImage.sprite = key[keyCode];
         keyCodeNow = keyCode;
-        AudioManager.PlaySound(keyChangeSound);
+        SoundManager.instance.PlaySound(keyChangeSound);
     }
 }

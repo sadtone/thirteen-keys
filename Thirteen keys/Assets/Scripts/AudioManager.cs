@@ -7,46 +7,31 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    private static float volume;
-
-    private static AudioSource bgmPlayer;
-    private static AudioSource sfxPlayer;
+    private AudioSource audioPlayer;
+    private float volume;
 
     public AudioClip startBGM;
 
-    private void Awake()
+    private void Start()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            return;
-        }
+        instance = this;
         DontDestroyOnLoad(this);
-        bgmPlayer = GetComponent<AudioSource>();
-        sfxPlayer = GetComponent<AudioSource>();
+        audioPlayer = GetComponent<AudioSource>();
         volume = 1f;
         PlayBGM(startBGM);
     }
 
-    public static void PlayBGM(AudioClip clip)
+    public void PlayBGM(AudioClip clip)
     {
-        bgmPlayer.Stop();
-        bgmPlayer.clip = clip;
-        bgmPlayer.loop = true;
-        bgmPlayer.time = 0;
-        bgmPlayer.Play();
+        audioPlayer.Stop();
+        audioPlayer.clip = clip;
+        audioPlayer.loop = true;
+        audioPlayer.time = 0;
+        audioPlayer.volume = volume;
+        audioPlayer.Play();
     }
 
-    public static void PlaySound(AudioClip clip)
-    {
-        sfxPlayer.clip = clip;
-        sfxPlayer.Play();
-    }
-
-    public static void SetVolume(float vol)
+    public void SetVolume(float vol)
     {
         volume = vol;
     }
