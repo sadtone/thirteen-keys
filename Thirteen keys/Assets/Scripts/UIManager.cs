@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public GameObject keyBagUI, pauseUI;
     public Transform ground, backGround;
 
-    private float groundX, backGroundX;
+    private float groundX, backGroundX; //-90 , 15
 
     void Start()
     {
