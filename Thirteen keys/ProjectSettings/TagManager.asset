@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
   - Door
+=======
+  - ObsParent
+>>>>>>> fb98eae69b76e2fdbc93db2495a90f6ab0738474
   layers:
   - Default
   - TransparentFX
