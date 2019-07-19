@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject keyBagUI, pauseUI;
-    public Transform ground1, ground2, backGround, door;
+    public Transform ground1, ground2, backGround;
     //-95.9 , 15
 
     void Start()
@@ -15,7 +15,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        door.Translate(Vector3.left * 10f * Time.deltaTime);
         ground1.Translate(Vector3.left * 10f * Time.deltaTime);
         ground2.Translate(Vector3.left * 10f * Time.deltaTime);
 
