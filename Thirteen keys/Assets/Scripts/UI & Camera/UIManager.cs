@@ -14,9 +14,9 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        door.Translate(Vector3.left * 5f * Time.deltaTime);
-        ground1.Translate(Vector3.left * 5f * Time.deltaTime);
-        ground2.Translate(Vector3.left * 5f * Time.deltaTime);
+        door.Translate(Vector3.left * 10f * Time.deltaTime);
+        ground1.Translate(Vector3.left * 10f * Time.deltaTime);
+        ground2.Translate(Vector3.left * 10f * Time.deltaTime);
 
         if (ground1.position.x <= -45)
             ground1.position = new Vector3(15, -5, 0);

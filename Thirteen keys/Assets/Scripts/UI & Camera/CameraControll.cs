@@ -16,7 +16,7 @@ public class CameraControll : MonoBehaviour
     {
         if (isDoorDetected)
         {
-            transform.Translate(Vector3.left * 5f * Time.deltaTime);
+            transform.Translate(Vector3.left * 10f * Time.deltaTime);
         }
         else
         {
