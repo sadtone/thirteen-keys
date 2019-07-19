@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7790175067724304443}
   - component: {fileID: 6177354150504447571}
   - component: {fileID: 8781569509292718390}
+  - component: {fileID: 7459920575422099159}
   m_Layer: 0
   m_Name: obsUpSmall
   m_TagString: Obstacle
@@ -100,3 +101,16 @@ EdgeCollider2D:
   - {x: -0.0707875, y: -0.14814094}
   - {x: 0.00091997784, y: -0.0013994854}
   - {x: 0.073595814, y: -0.1495451}
+--- !u!114 &7459920575422099159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7790175067724304436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a5d0cbe995e40438eb3247fc633123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10

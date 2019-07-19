@@ -20,7 +20,7 @@ public class CameraControll : MonoBehaviour
         }
         else
         {
-            transform.position = beforePos;
+            transform.Translate((beforePos - transform.position) * Time.deltaTime);
         }
     }
 

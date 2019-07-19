@@ -6,11 +6,17 @@ public class MapRender : MonoBehaviour
 {
 
     public GameObject[] pattern;
+    public GameObject[] door;
     public float obsRange;
+
+    void Start()    
+    {
+        SetPattern();
+    }
 
     public void SetPattern()
     {
-        for(int i = 0; i < pattern.Length; i++)
+        for(int i = 0; i < 4; i++)
         {
             pattern[i].SetActive(false);
         }
@@ -33,12 +39,40 @@ public class MapRender : MonoBehaviour
             }
         }
 
+        float lastObsX = 12;
         for(int i = 0; i < obsNum; i++)
         {
             pattern[obsArr[i]].SetActive(true);
-            pattern[obsArr[i]].transform.position = new Vector3(12 + i * obsRange, 0, 0);
+            lastObsX = 12 + i * obsRange;
+            pattern[obsArr[i]].transform.position = new Vector3(lastObsX, 0, 0);
         }
 
+        for (int i = 0; i < door.Length; i++)
+        {
+            door[i].SetActive(false);
+        }
+
+        int[] doorArr = new int[doorNum];
+
+        for (int i = 0; i < doorNum; i++)
+        {
+            //doorArr[i] = Random.Range(0, 14);
+            doorArr[i] = Random.Range(0, 1);
+            for (int j = 0; j < i; j++)
+            {
+                if (doorArr[i] == doorArr[j])
+                {
+                    i--;
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < doorNum; i++)
+        {
+            door[doorArr[i]].SetActive(true);
+            door[doorArr[i]].transform.position = new Vector3(lastObsX + (i + 1) * obsRange, 0, 0);
+        }
 
     }
 

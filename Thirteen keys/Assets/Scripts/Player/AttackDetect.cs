@@ -38,7 +38,9 @@ public class AttackDetect : MonoBehaviour
             if(pC.keyCodeNow == 0)
             {
                 cameraMain.ShakeStart(0.7f, 0.2f);
-                other.transform.parent.gameObject.tag = "OpenedDoor";
+                other.transform.parent.gameObject.GetComponent<Door>().doorDetect.tag = "OpenedDoor";
+
+                MapRenderer.instance.MapRender();
             }
         }
     }
