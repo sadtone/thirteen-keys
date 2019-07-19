@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatternCtrl : MonoBehaviour
 {
 
-    public float moveSpeed = 1;
+    public float moveSpeed = 5;
     
     private void Update()
     {

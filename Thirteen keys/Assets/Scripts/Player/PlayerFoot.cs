@@ -7,7 +7,7 @@ public class PlayerFoot : MonoBehaviour
     public bool isGround;
     public int groundCnt;
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Ground"))
         {
