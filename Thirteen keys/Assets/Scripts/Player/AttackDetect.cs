@@ -6,14 +6,17 @@ public class AttackDetect : MonoBehaviour
 {
     private int cnt;
     private bool isAttacked;
+    private PlayerControll pC;
 
     public GameObject bloodEffect;
     public CameraControll cameraMain;
     public GameObject body;
+    
 
     void Start()
     {
         cnt = 0;
+        pC = GetComponentInParent<PlayerControll>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,11 +33,19 @@ public class AttackDetect : MonoBehaviour
                 StartCoroutine(Attacked());
 
         }
+        if (other.CompareTag("Keyhole"))
+        {
+            if(pC.keyCodeNow == 0)
+            {
+                cameraMain.ShakeStart(0.7f, 0.2f);
+                other.transform.parent.gameObject.tag = "OpenedDoor";
+            }
+        }
     }
 
     private IEnumerator Attacked()
     {
-        cameraMain.ShakeStart(1, 0.2f);
+        cameraMain.ShakeStart(0.5f, 0.2f);
         bloodEffect.SetActive(true);
         StartCoroutine(FadeInOut(bloodEffect, 100));
         StartCoroutine(FadeInOut(body, 50));
