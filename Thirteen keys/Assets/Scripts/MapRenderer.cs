@@ -46,11 +46,22 @@ public class MapRenderer : MonoBehaviour
             for (int i = 0; i < obsN; i++)
             {
                 obstacle[obsArray[i]].SetActive(true);
-                obstacle[obsArray[i]].transform.position = new Vector3(startObsX + length * (i + 1), -2, 0);
+                if (obsArray[i] == 2)
+                {
+                    obstacle[obsArray[i]].transform.position = new Vector3(startObsX + length * (i + 1), 1, 0);
+                }
+                else if(obsArray[i] == 3)
+                {
+                    obstacle[obsArray[i]].transform.position = new Vector3(startObsX + length * (i + 1), -0.5f, 0);
+                }
+                else
+                {
+                    obstacle[obsArray[i]].transform.position = new Vector3(startObsX + length * (i + 1), -2, 0);
+                }
             }
 
             //int doorN = Random.Range(0, 3);
-            int doorN = Random.Range(1, 2); //임시
+            int doorN = Random.Range(1, 4); //임시
 
             int[] doorArray = new int[doorN];
             int[] doorArray2 = new int[doorN];
@@ -77,9 +88,15 @@ public class MapRenderer : MonoBehaviour
                 }
                 data.key.GetComponent<SpriteRenderer>().sprite = key[doorArray2[i]];
                 door[i].GetComponent<SpriteRenderer>().sprite = doorType[doorArray[i]];
-
-
+                data.keyHole.transform.name = doorArray2[i].ToString();
                 door[i].transform.position = new Vector3(startObsX + length * (obsN + i + 1), -1.5f, 0);
+                data.doorDetect.tag = "Door";
+                data.killObject.tag = "KillPlayer";
+                data.keyHole.tag = "Keyhole2";
+                if ((doorN - 1) == i)
+                {
+                    data.keyHole.tag = "Keyhole";
+                }
             }
         }
         else
@@ -105,10 +122,21 @@ public class MapRenderer : MonoBehaviour
             for (int i = 0; i < obsN; i++)
             {
                 obstacle[obsArray[i] + 4].SetActive(true);
-                obstacle[obsArray[i] + 4].transform.position = new Vector3(startObsX + length * (i + 1), -2, 0);
+                if (obsArray[i] == 2)
+                {
+                    obstacle[obsArray[i] + 4].transform.position = new Vector3(startObsX + length * (i + 1), 1, 0);
+                }
+                else if (obsArray[i] == 3)
+                {
+                    obstacle[obsArray[i] + 4].transform.position = new Vector3(startObsX + length * (i + 1), -0.5f, 0);
+                }
+                else
+                {
+                    obstacle[obsArray[i] + 4].transform.position = new Vector3(startObsX + length * (i + 1), -2, 0);
+                }
             }
 
-            int doorN = Random.Range(1, 2);
+            int doorN = Random.Range(1, 4);
 
             int[] doorArray = new int[doorN];
             int[] doorArray2 = new int[doorN];
@@ -135,9 +163,15 @@ public class MapRenderer : MonoBehaviour
                 }
                 data.key.GetComponent<SpriteRenderer>().sprite = key[doorArray2[i]];
                 door[i + 3].GetComponent<SpriteRenderer>().sprite = doorType[doorArray[i]];
-
-
+                data.keyHole.transform.name = doorArray2[i].ToString();
                 door[i + 3].transform.position = new Vector3(startObsX + length * (obsN + i + 1), -1.5f, 0);
+                data.doorDetect.tag = "Door";
+                data.killObject.tag = "KillPlayer";
+                data.keyHole.tag = "Keyhole2";
+                if ((doorN - 1) == i)
+                {
+                    data.keyHole.tag = "Keyhole";
+                }
             }
         }
         

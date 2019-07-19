@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AttackDetect : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class AttackDetect : MonoBehaviour
             if (cnt > 2)
             {
                 //게임 오버
-                Debug.Log("GameOver");
+                SceneManager.LoadScene("EndingScene");
             }
             if(!isAttacked)
                 StartCoroutine(Attacked());
@@ -35,13 +36,31 @@ public class AttackDetect : MonoBehaviour
         }
         if (other.CompareTag("Keyhole"))
         {
-            if(pC.keyCodeNow == 0)
+            if(pC.keyCodeNow.ToString() == other.name)
             {
                 cameraMain.ShakeStart(0.7f, 0.2f);
                 other.transform.parent.gameObject.GetComponent<Door>().doorDetect.tag = "OpenedDoor";
+                other.transform.parent.gameObject.GetComponent<Door>().killObject.tag = "Untagged";
+                GameManager.moveSpeed += 0.3f;
+                GameManager.currentScore += 1000;
+                GameManager.clearDoor++;
 
                 MapRenderer.instance.MapRender();
             }
+        }
+        if (other.CompareTag("Keyhole2"))
+        {
+            if (pC.keyCodeNow.ToString() == other.name)
+            {
+                cameraMain.ShakeStart(0.7f, 0.2f);
+                other.transform.parent.gameObject.GetComponent<Door>().doorDetect.tag = "OpenedDoor";
+                other.transform.parent.gameObject.GetComponent<Door>().killObject.tag = "Untagged";
+                GameManager.currentScore += 1000;
+            }
+        }
+        if (other.CompareTag("KillPlayer"))
+        {
+            SceneManager.LoadScene("EndingScene");
         }
     }
 

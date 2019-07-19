@@ -10,6 +10,8 @@ TagManager:
   - OpenedDoor
   - ObsParent
   - Keyhole
+  - KillPlayer
+  - Keyhole2
   layers:
   - Default
   - TransparentFX

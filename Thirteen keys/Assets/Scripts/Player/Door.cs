@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public GameObject keyHole, key, doorDetect;
+    public GameObject keyHole, key, doorDetect, killObject;
 }
