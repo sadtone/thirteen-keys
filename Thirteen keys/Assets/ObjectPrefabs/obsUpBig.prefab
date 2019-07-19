@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1866951082698636681}
   - component: {fileID: 590172321288060994}
   m_Layer: 0
-  m_Name: obsB2
-  m_TagString: Untagged
+  m_Name: obsUpBig
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

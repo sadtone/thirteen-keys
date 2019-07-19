@@ -34,6 +34,11 @@ public class CameraControll : MonoBehaviour
         isDoorDetected = false;
     }
 
+    public void ShakeStart(float power, float duration)
+    {
+        StartCoroutine(Shake(power, duration));
+    }
+
     private IEnumerator Shake(float power, float duration)
     {
         float timer = 0;
