@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1035292931629132472}
   - component: {fileID: 29829467558335025}
   m_Layer: 0
-  m_Name: obsB3
-  m_TagString: Untagged
+  m_Name: obsDownSmall
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
