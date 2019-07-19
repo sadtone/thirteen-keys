@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2965617070903056095}
   - component: {fileID: 1866951082698636681}
   - component: {fileID: 590172321288060994}
+  - component: {fileID: 7097127022800483449}
   m_Layer: 0
   m_Name: obsUpBig
   m_TagString: Obstacle
@@ -100,3 +101,16 @@ EdgeCollider2D:
   - {x: -0.070344925, y: -0.14616935}
   - {x: -0.00084241235, y: 0.15082443}
   - {x: 0.07127597, y: -0.14616935}
+--- !u!114 &7097127022800483449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965617070903056092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a5d0cbe995e40438eb3247fc633123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10

@@ -56,13 +56,7 @@ public class PlayerControll : MonoBehaviour
         if(v == -1)
         {
             if (foot.isGround)
-                Slide(foot.isGround);
-            else
-                Slide(false);
-        }
-        else
-        {
-            Slide(false);
+                anim.SetInteger("isJumpUp", 3);
         }
 
         if (doorDetect1.isDoor)
@@ -95,13 +89,6 @@ public class PlayerControll : MonoBehaviour
         yield break;
     }
 
-    private void Slide(bool isGround)
-    {
-        if (isGround)
-            body.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
-        else
-            body.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-    }
 
     public void KeyChange(int keyCode)
     {

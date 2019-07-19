@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6297242479559661018}
   - component: {fileID: 816249361944753283}
   - component: {fileID: 1767142548827371303}
+  - component: {fileID: 3686299095887745961}
   m_Layer: 0
   m_Name: obsDownBigger
   m_TagString: Obstacle
@@ -99,3 +100,16 @@ EdgeCollider2D:
   - {x: -0.0725647, y: 0.22469012}
   - {x: 0.00015246074, y: -0.22288233}
   - {x: 0.07621766, y: 0.22469012}
+--- !u!114 &3686299095887745961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297242479559661019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a5d0cbe995e40438eb3247fc633123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
