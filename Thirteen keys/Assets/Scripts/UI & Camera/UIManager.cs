@@ -5,25 +5,24 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject keyBagUI, pauseUI;
-    public Transform ground, backGround;
-
-    private float groundX, backGroundX; //-90 , 15
+    public Transform ground1, ground2, backGround, door;
+    //-95.9 , 15
 
     void Start()
     {
-        groundX = 20;
     }
 
     void Update()
     {
-        if(ground.position.x > -groundX)
-        {
-            ground.Translate(new Vector3(-10f * Time.deltaTime, 0, 0));
-        }
-        else
-        {
-            ground.position = new Vector3(groundX, -5, 0);
-        }
+        door.Translate(Vector3.left * 5f * Time.deltaTime);
+        ground1.Translate(Vector3.left * 5f * Time.deltaTime);
+        ground2.Translate(Vector3.left * 5f * Time.deltaTime);
+
+        if (ground1.position.x <= -95.9)
+            ground1.position = new Vector3(15, -4.6f, 0);
+        if (ground2.position.x <= -95.9)
+            ground2.position = new Vector3(15, -4.6f, 0);
+
     }
 
     public void OnPauseUI()

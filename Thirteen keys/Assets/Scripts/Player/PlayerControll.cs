@@ -6,15 +6,19 @@ public class PlayerControll : MonoBehaviour
 {
     private Rigidbody2D rigid2d;
     private PlayerFoot foot;
+    private DoorDetect doorDetect;
     private bool doubleJump;
+    private bool isDoor;
 
     public Transform body;
+    public CameraControll main;
     public float v;
     public float jumpPower;
 
 
     void Start()
     {
+        doorDetect = GetComponentInChildren<DoorDetect>();
         rigid2d = GetComponent<Rigidbody2D>();
         foot = GetComponentInChildren<PlayerFoot>();
     }
@@ -49,13 +53,27 @@ public class PlayerControll : MonoBehaviour
         {
             Slide(false);
         }
+
+        if (isDoor)
+        {
+            main.DoorDetected();
+        }
+        else
+        {
+            main.BackToOrigin();
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Door"))
         {
-            Time.timeScale = 0.2f; //5초에 trigger raius만큼 움직이게 해야해요 아시겠죠
+            isDoor = true;
+        }
+        if (other.CompareTag("OpenedDoor"))
+        {
+            isDoor = false;
         }
     }
 
@@ -89,4 +107,11 @@ public class PlayerControll : MonoBehaviour
         else
             body.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
+
+    private void Attacked()
+    {
+
+    }
+
+    
 }
