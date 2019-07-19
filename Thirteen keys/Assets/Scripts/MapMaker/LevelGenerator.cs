@@ -3,6 +3,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour {
 
 	public Texture2D map;
+    public GameObject[] parents;
 
 	public ColorToPrefab[] colorMappings;
 
@@ -36,7 +37,7 @@ public class LevelGenerator : MonoBehaviour {
 		{
 			if (colorMapping.color.Equals(pixelColor))
 			{
-				Vector2 position = new Vector2(x * 1.5f, y * 1.5f);
+				Vector2 position = new Vector2(x, y); //¼öÁ¤
 				Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
 			}
 		}
