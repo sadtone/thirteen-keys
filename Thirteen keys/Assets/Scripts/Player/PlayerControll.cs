@@ -6,25 +6,26 @@ public class PlayerControll : MonoBehaviour
 {
     private Rigidbody2D rigid2d;
     private PlayerFoot foot;
-    private DoorDetect doorDetect;
     private Animator anim;
     private bool doubleJump;
-    private bool isDoor;
 
+    public DoorDetect doorDetect, doorDetect1;
+    public SpriteRenderer keyImage;
     public Transform body;
     public CameraControll main;
-    public float v;
-    public float jumpPower;
-
+    public int keyCodeNow;
+    public float v, jumpPower;
+    public Sprite[] key;
 
     void Start()
     {
-        doorDetect = GetComponentInChildren<DoorDetect>();
         rigid2d = GetComponent<Rigidbody2D>();
         foot = GetComponentInChildren<PlayerFoot>();
         anim = GetComponentInChildren<Animator>();
-    }
 
+        keyCodeNow = 0;
+        keyImage.sprite = key[keyCodeNow];
+    }
 
     void FixedUpdate()
     {
@@ -37,7 +38,7 @@ public class PlayerControll : MonoBehaviour
             anim.SetInteger("isJumpUp", 2);
             
         if(foot.isGround)
-            anim.SetInteger("isJumpUp", 0);
+            anim.SetInteger("isJumpUp", 0); 
 
 
         if ((Input.GetKey(KeyCode.Space))){
@@ -49,9 +50,7 @@ public class PlayerControll : MonoBehaviour
             else
             {
                 if(foot.groundCnt > 0)
-                {
                     StartCoroutine(Jump(true));
-                }
             }
         }
         if(v == -1)
@@ -66,27 +65,11 @@ public class PlayerControll : MonoBehaviour
             Slide(false);
         }
 
-        if (isDoor)
-        {
+        if (doorDetect1.isDoor)
             main.DoorDetected();
-        }
         else
-        {
             main.BackToOrigin();
-        }
             
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Door"))
-        {
-            isDoor = true;
-        }
-        if (other.CompareTag("OpenedDoor"))
-        {
-            isDoor = false;
-        }
     }
 
     private IEnumerator Jump(bool isDouble)
@@ -120,10 +103,9 @@ public class PlayerControll : MonoBehaviour
             body.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
-    private void Attacked()
+    public void KeyChange(int keyCode)
     {
-
+        keyImage.sprite = key[keyCode];
+        keyCodeNow = keyCode;
     }
-
-    
 }
