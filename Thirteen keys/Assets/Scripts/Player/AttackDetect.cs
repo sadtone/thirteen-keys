@@ -12,6 +12,7 @@ public class AttackDetect : MonoBehaviour
     public GameObject bloodEffect;
     public CameraControll cameraMain;
     public GameObject body;
+    public AudioClip doorOpenSound;
     
 
     void Start()
@@ -44,6 +45,7 @@ public class AttackDetect : MonoBehaviour
                 GameManager.moveSpeed += 0.3f;
                 GameManager.currentScore += 1000;
                 GameManager.clearDoor++;
+                AudioManager.PlaySound(doorOpenSound);
 
                 MapRenderer.instance.MapRender();
             }
@@ -56,6 +58,7 @@ public class AttackDetect : MonoBehaviour
                 other.transform.parent.gameObject.GetComponent<Door>().doorDetect.tag = "OpenedDoor";
                 other.transform.parent.gameObject.GetComponent<Door>().killObject.tag = "Untagged";
                 GameManager.currentScore += 1000;
+                AudioManager.PlaySound(doorOpenSound);
             }
         }
         if (other.CompareTag("KillPlayer"))

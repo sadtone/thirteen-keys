@@ -16,6 +16,7 @@ public class PlayerControll : MonoBehaviour
     public int keyCodeNow;
     public float v, jumpPower;
     public Sprite[] key;
+    public AudioClip keyChangeSound;
 
     void Start()
     {
@@ -94,5 +95,6 @@ public class PlayerControll : MonoBehaviour
     {
         keyImage.sprite = key[keyCode];
         keyCodeNow = keyCode;
+        AudioManager.PlaySound(keyChangeSound);
     }
 }

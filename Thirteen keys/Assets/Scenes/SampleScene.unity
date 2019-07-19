@@ -1928,6 +1928,7 @@ MonoBehaviour:
   keyHole: {fileID: 1155969215}
   key: {fileID: 1288629200}
   doorDetect: {fileID: 2092043672}
+  killObject: {fileID: 0}
 --- !u!1 &574573412
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2098,7 @@ MonoBehaviour:
   keyHole: {fileID: 2082437401}
   key: {fileID: 230912458}
   doorDetect: {fileID: 899401203}
+  killObject: {fileID: 0}
 --- !u!1 &584105663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2211,7 @@ MonoBehaviour:
   keyHole: {fileID: 1114688988}
   key: {fileID: 654008945}
   doorDetect: {fileID: 1518443926}
+  killObject: {fileID: 0}
 --- !u!1 &604835898
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,6 +3003,7 @@ MonoBehaviour:
   bloodEffect: {fileID: 411067554}
   cameraMain: {fileID: 519420030}
   body: {fileID: 921164782}
+  doorOpenSound: {fileID: 8300000, guid: 89448455ec3697a4e9b1f7b20853d60e, type: 3}
 --- !u!61 &904039902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3500,7 +3504,7 @@ SpriteRenderer:
   m_Size: {x: 0.13, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1114688991
@@ -3597,7 +3601,7 @@ SpriteRenderer:
   m_Size: {x: 0.13, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1155969218
@@ -4156,6 +4160,7 @@ MonoBehaviour:
   keyHole: {fileID: 1884969532}
   key: {fileID: 912686918}
   doorDetect: {fileID: 1434454257}
+  killObject: {fileID: 0}
 --- !u!1 &1288629200
 GameObject:
   m_ObjectHideFlags: 0
@@ -5502,6 +5507,7 @@ MonoBehaviour:
   - {fileID: -8101026205411825695, guid: b5df3cda5872ffc4e8ca63fd6fea5294, type: 3}
   - {fileID: -1738318630372558329, guid: b5df3cda5872ffc4e8ca63fd6fea5294, type: 3}
   - {fileID: 8990860109403730403, guid: b5df3cda5872ffc4e8ca63fd6fea5294, type: 3}
+  keyChangeSound: {fileID: 0}
 --- !u!1 &1815607893
 GameObject:
   m_ObjectHideFlags: 0
@@ -5727,6 +5733,7 @@ MonoBehaviour:
   keyHole: {fileID: 2070407184}
   key: {fileID: 773850302}
   doorDetect: {fileID: 574573412}
+  killObject: {fileID: 0}
 --- !u!1 &1858307191
 GameObject:
   m_ObjectHideFlags: 0
@@ -5880,7 +5887,7 @@ SpriteRenderer:
   m_Size: {x: 0.13, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1884969535
@@ -6332,7 +6339,7 @@ SpriteRenderer:
   m_Size: {x: 0.13, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &2042921138
@@ -6429,7 +6436,7 @@ SpriteRenderer:
   m_Size: {x: 0.13, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &2070407187
@@ -6526,7 +6533,7 @@ SpriteRenderer:
   m_Size: {x: 0.13, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &2082437404
@@ -6714,6 +6721,7 @@ MonoBehaviour:
   keyHole: {fileID: 2042921135}
   key: {fileID: 878585703}
   doorDetect: {fileID: 550157736}
+  killObject: {fileID: 0}
 --- !u!1 &2109347707
 GameObject:
   m_ObjectHideFlags: 0
