@@ -18,10 +18,10 @@ public class UIManager : MonoBehaviour
         ground1.Translate(Vector3.left * 5f * Time.deltaTime);
         ground2.Translate(Vector3.left * 5f * Time.deltaTime);
 
-        if (ground1.position.x <= -95.9)
-            ground1.position = new Vector3(15, -4.6f, 0);
-        if (ground2.position.x <= -95.9)
-            ground2.position = new Vector3(15, -4.6f, 0);
+        if (ground1.position.x <= -45)
+            ground1.position = new Vector3(15, -5, 0);
+        if (ground2.position.x <= -45)
+            ground2.position = new Vector3(15, -5, 0);
 
     }
 
